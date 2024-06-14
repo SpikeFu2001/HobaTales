@@ -39,7 +39,7 @@ namespace GetMikyled.LevelEditor
             //loops through all the meshes to check what materials need to be merged together
             for (int mesh = 0; mesh < meshArray.Length; mesh++)
             {
-                currentMaterial = meshArray[mesh].GetComponent<MeshRenderer>().material; //gets the current meshes material
+                currentMaterial = meshArray[mesh].GetComponent<MeshRenderer>().sharedMaterial; //gets the current meshes material
 
                 bool uniqueMaterial = true;
 
