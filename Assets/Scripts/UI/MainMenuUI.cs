@@ -10,8 +10,9 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private string _gameSceneName;
 
     private UIDocument _uiDocument;
-    private Button _startButton;
+    private VisualElement _startVisualElement;
     private Button _creditsButton;
+    
 
     ///-////////////////////////////////////////////////////////////////////////////////
     /// 
@@ -25,9 +26,10 @@ public class MainMenuUI : MonoBehaviour
     private void InitializeUI()
     {
         _uiDocument = GetComponent<UIDocument>();
-
-        _startButton = _uiDocument.rootVisualElement.Q<Button>("StartButton");
-        _startButton.RegisterCallback<ClickEvent>(OnStartButtonPressed);
+        
+        _startVisualElement = _uiDocument.rootVisualElement.Q<VisualElement>("Start");
+        _startVisualElement.RegisterCallback<ClickEvent>(OnStartButtonPressed);
+        
         _creditsButton = _uiDocument.rootVisualElement.Q<Button>("CreditsButton");
         _creditsButton.RegisterCallback<ClickEvent>(OnCreditsButtonPressed);
     }
@@ -39,7 +41,7 @@ public class MainMenuUI : MonoBehaviour
         // Start Game
         SceneManager.LoadScene(_gameSceneName);
     }
-
+    
     ///-////////////////////////////////////////////////////////////////////////////////
     /// 
     private void OnCreditsButtonPressed(ClickEvent evt)
