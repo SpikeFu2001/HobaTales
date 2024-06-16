@@ -9,6 +9,8 @@ using UnityEngine;
 public class ToonShader : MonoBehaviour
 {
     [SerializeField] private Material[] _shaders;
+
+    [Space] [SerializeField] private float _saturationTweenDuration;    
     
     [Header("Properties")]
     [Tooltip("The shader's color.")]
@@ -22,20 +24,27 @@ public class ToonShader : MonoBehaviour
     [Tooltip("The strength of the outer lighting edge.")] 
     [SerializeField] private float _outerLightingEdge = 0.4f;
 
-    private static int TOON_SATURATION_ID = Shader.PropertyToID("_Saturation");
-
     private ArrayList _materials;
     
-    private void SetSaturation(Material material, float newSaturation)
+    private static int TOON_SATURATION_ID = Shader.PropertyToID("_Saturation");
+
+    ///-////////////////////////////////////////////////////////////////////////////////
+    /// 
+    public void SaturateToonShaders()
     {
-        material.SetFloat(TOON_SATURATION_ID, _saturation);
+        foreach (Material m in _shaders)
+        {
+            m.DOFloat(1f, TOON_SATURATION_ID, _saturationTweenDuration);
+        }
     }
 
-    private void Update()
+    ///-////////////////////////////////////////////////////////////////////////////////
+    /// 
+    public void DesaturateToonShaders()
     {
-        foreach (Material material in _shaders)
+        foreach (Material m in _shaders)
         {
-            SetSaturation(material, _saturation);
+            m.DOFloat(0, TOON_SATURATION_ID, _saturationTweenDuration);
         }
     }
 }
