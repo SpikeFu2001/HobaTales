@@ -14,9 +14,8 @@ public class GlobalAudio : MonoBehaviour
     
     ///-////////////////////////////////////////////////////////////////////////////////
     /// 
-    private void OnEnable()
+    private void Start()
     {
-        Debug.Log(AudioManager.instance);
         AudioManager.instance.PlayGlobalAudio(_audioClipName, volume, loop, gameObject);
     }
 }
