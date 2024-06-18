@@ -217,7 +217,7 @@ namespace GetMikyled.LevelEditor
 
             if (previewPrefab != null)
             {
-                MeshRenderer renderer = previewPrefab.GetComponent<MeshRenderer>();
+                MeshRenderer renderer = previewPrefab.GetComponentInChildren<MeshRenderer>();
                 float meshHeight = renderer.bounds.size.y;
 
                 if (hit) // if the prefab was placed on another GameObject
