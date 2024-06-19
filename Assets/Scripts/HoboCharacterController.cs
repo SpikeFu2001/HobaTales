@@ -20,7 +20,7 @@ public class HoboCharacterController : MonoBehaviour
     private Transform cameraTransform;
 
     [SerializeField] 
-    public GameObject cannotJumpUI;
+    public GameObject characterController;
 
     [SerializeField]
     private bool ableToJump = false;
