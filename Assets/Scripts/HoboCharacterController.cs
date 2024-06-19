@@ -19,6 +19,9 @@ public class HoboCharacterController : MonoBehaviour
     [SerializeField]
     private Transform cameraTransform;
 
+    [SerializeField] 
+    public GameObject cannotJumpUI;
+
     [SerializeField]
     private bool ableToJump = false;
     [SerializeField]
@@ -78,7 +81,7 @@ public class HoboCharacterController : MonoBehaviour
 
     private void Update()
     {
-        if(transform.position.y < -5)
+        if (transform.position.y < -5)
         {
             Respawn();
         }
@@ -87,7 +90,7 @@ public class HoboCharacterController : MonoBehaviour
         bool isAttacking = stateInfo.IsName("Attack");
         bool isInteracting = stateInfo.IsName("Interact");
         //Left Click: Interact
-        if (Input.GetMouseButtonDown(0) &&!isInteracting && !isAttacking)
+        if (Input.GetMouseButtonDown(0) && !isInteracting && !isAttacking)
         {
             animator.SetTrigger("isInteracting");
         }
@@ -151,20 +154,20 @@ public class HoboCharacterController : MonoBehaviour
             Respawn();
         }
     }
-        void FixedUpdate()
+    void FixedUpdate()
     {
 
     }
 
     private void UpdateAnimationAction()
     {
-        if (!isOnGround && !isFalling && !isJumping)
-        {
-            isFalling = true;
-            animator.SetBool("isFalling", true);
-        }
+        //if (!isOnGround && !isFalling && !isJumping)
+        //{
+        //    isFalling = true;
+        //    animator.SetBool("isFalling", true);
+        //}
 
-        if(isOnGround && !isFalling)
+        if (isOnGround && !isFalling)
         {
             //Landing
             //Handled by OnControllerColliderHit
@@ -202,6 +205,14 @@ public class HoboCharacterController : MonoBehaviour
 
     public void Respawn()
     {
-        gameObject.transform.position = new Vector3(0, 5, 0);
+        if (SceneManager.GetActiveScene().name == "Level1")
+        {
+            gameObject.transform.position = new Vector3(-1.644f, 5.0f, -107.121f);
+        }
+        else
+        {
+            gameObject.transform.position = new Vector3(0, 5, 0);
+
+        }
     }
 }
