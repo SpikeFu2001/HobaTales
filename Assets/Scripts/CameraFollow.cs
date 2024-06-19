@@ -11,6 +11,11 @@ public class CameraFollow : MonoBehaviour
     public Vector3 offset = new Vector3(0.0f,2.36f,-3.35f);
     public float cameraAheadDelta = 4.64f;
 
+    void Start()
+    {
+        player.GetComponent<HoboCharacterController>().enabled = true;
+    }
+
     void LateUpdate()
     {
         // Desired position of the camera

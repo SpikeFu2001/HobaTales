@@ -208,6 +208,12 @@ public class HoboCharacterController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Level1")
         {
             gameObject.transform.position = new Vector3(-1.644f, 5.0f, -107.121f);
+        }else if (SceneManager.GetActiveScene().name == "Level2")
+        {
+            gameObject.transform.position = new Vector3(1.32168f, 5.0f, -100.36f);
+        }else if(SceneManager.GetActiveScene().name == "Level3")
+        {
+            gameObject.transform.position = new Vector3(-0.0770383f, 5.0f, 21.01f);
         }
         else
         {

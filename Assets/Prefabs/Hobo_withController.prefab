@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3016012204919036938
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 532517808611402840}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &532517808611402840
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3016012204919036938}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.43, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5555358028902395673}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8778645792660498592
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,7 +35,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6706918705676008389}
-  - {fileID: 532517808611402840}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &4738918644021289302
@@ -112,6 +80,7 @@ MonoBehaviour:
   rigidbody: {fileID: 0}
   controller: {fileID: 0}
   cameraTransform: {fileID: 0}
+  characterController: {fileID: 0}
   ableToJump: 0
   isWalking: 0
   isJumping: 0
@@ -158,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5740ffb3e160164896383534c424f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupPosition: {fileID: 532517808611402840}
+  pickupPosition: {fileID: 0}
 --- !u!114 &9083900181184347458
 MonoBehaviour:
   m_ObjectHideFlags: 0
