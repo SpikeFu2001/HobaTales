@@ -122,12 +122,16 @@ public class HoboInteractionController : MonoBehaviour
     ///
     private void InteractWithObject(InteractableObject interactableObject)
     {
-        interactableObject.Interact(this);
-        
         if (interactableObject is PickupObject pickupObject)
         {
             PickupObject(pickupObject);
         }
+        else
+        {
+            _nearbyInteractables.Remove(interactableObject);
+        }
+        
+        interactableObject.Interact(this);
     }
 
     ///-/////////////////////////////////////////////////////////////////////////////////////
