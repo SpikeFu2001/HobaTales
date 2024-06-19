@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Bird : MonoBehaviour
 {
@@ -12,12 +14,16 @@ public class Bird : MonoBehaviour
     [SerializeField] private Vector3 _direction = new Vector3(0, 2, -1);
     [SerializeField] private float _destroyDelay = 3f;
 
-    [Space] 
     [SerializeField] private float _sfxVolume = 0.25f;
-    
-    public Vector3 direction => _direction.normalized;
 
+    private Vector3 direction = new Vector3(0, 2, 0);
     private bool _isFlying = false;
+
+    private void Awake()
+    {
+        direction.x = Random.Range(-1f, 1f);
+        direction.z = Random.Range(-1f, 1f);
+    }
 
     private void Update()
     {
@@ -33,8 +39,11 @@ public class Bird : MonoBehaviour
         _isFlying = true;
         
         transform.LookAt(direction);
-        
-        AudioManager.instance.PlayGlobalAudio("[04] Birds", _sfxVolume);
+
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayGlobalAudio("[04] Birds", _sfxVolume);
+        }
         
         DestroyAfterSeconds(_destroyDelay);
     }

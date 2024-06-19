@@ -546,12 +546,12 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.26
-  m_Height: 0.66957575
+  m_Radius: 0.96588385
+  m_Height: 1.9317675
   m_Direction: 1
   m_Center: {x: 0, y: 0.33830807, z: 0}
 --- !u!114 &9188385877673613381
@@ -567,9 +567,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 6788538757290762327}
-  _speed: 10
+  _speed: 5
   _direction: {x: 0, y: 2, z: -1}
   _destroyDelay: 3
+  _sfxVolume: 0.25
 --- !u!1 &6788538757856321312
 GameObject:
   m_ObjectHideFlags: 0

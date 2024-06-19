@@ -57,13 +57,17 @@ public class HoboSwingController : MonoBehaviour
     private void OnStartSwingCane()
     {
         canSwing = false;
-
-        AudioManager.instance.PlayGlobalAudio("[05] Cane", _sfxVolume);
         
         // Detect if birds are nearby to swing at
         foreach (Bird bird in nearbyBirds)
         {
             bird.Fly();
+        }
+        
+        // Play cane SFX
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayGlobalAudio("[05] Cane", _sfxVolume);
         }
     }
 

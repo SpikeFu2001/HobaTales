@@ -13,7 +13,6 @@ public class HoboAnimationEvents : MonoBehaviour
     
     public void StopAttackAnimation()
     {
-        Debug.Log("ANIMTION EVENT");
         _hoboSwingController.OnStopSwingCane();
     }
 }
