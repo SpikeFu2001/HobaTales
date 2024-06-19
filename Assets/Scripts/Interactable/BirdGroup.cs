@@ -6,7 +6,12 @@ public class BirdGroup : Bird
 {
     [SerializeField] private GameObject key;
     [SerializeField] private float _sfxVolume = 0.5f;
-    
+    [SerializeField] public GameObject keySpawnedDialogue;
+
+    void Start()
+    {
+        if (keySpawnedDialogue != null) { keySpawnedDialogue.SetActive(false); }
+    }
     public override void Fly()
     {
         if (AudioManager.instance != null)
@@ -16,6 +21,11 @@ public class BirdGroup : Bird
         
         key.SetActive(true);
         key.transform.parent = null;
+
+        if (keySpawnedDialogue != null)
+        {
+            keySpawnedDialogue.SetActive(true);
+        }
         
         Destroy(this);
     }

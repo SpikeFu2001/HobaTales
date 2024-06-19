@@ -5,6 +5,13 @@ using UnityEngine;
 public class KeyPickup : PickupObject
 {
     private Vector3 position;
+    [SerializeField] public GameObject keyPickedUpDialogue;
+    [SerializeField] public GameObject openHouseDialogue;
+    void Start()
+    {
+        if (keyPickedUpDialogue != null) { keyPickedUpDialogue.SetActive(false); }
+        if (openHouseDialogue != null) { openHouseDialogue.SetActive(false); }
+    }
 
     private void Awake()
     {
@@ -14,6 +21,14 @@ public class KeyPickup : PickupObject
     public override void Interact(HoboInteractionController hoboInteractionController)
     {
         isPickedUp = true;
+        if (keyPickedUpDialogue != null)
+        {
+            keyPickedUpDialogue.SetActive(true);
+        }
+        if(openHouseDialogue != null)
+        {
+            openHouseDialogue.SetActive(true);
+        }
     }
 
     public override void Drop(HoboInteractionController hoboInteractionController)
