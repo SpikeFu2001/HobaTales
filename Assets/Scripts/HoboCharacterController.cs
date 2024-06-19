@@ -146,7 +146,7 @@ public class HoboCharacterController : MonoBehaviour
             UpdateAnimationAction();
         }
 
-        if (transform.position.y <= -100)
+        if (transform.position.y <= -10)
         {
             Respawn();
         }
@@ -158,7 +158,7 @@ public class HoboCharacterController : MonoBehaviour
 
     private void UpdateAnimationAction()
     {
-        if (!isOnGround && !isFalling)
+        if (!isOnGround && !isFalling && !isJumping)
         {
             isFalling = true;
             animator.SetBool("isFalling", true);
