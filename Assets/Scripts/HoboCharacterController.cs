@@ -1,11 +1,8 @@
-using StarterAssets;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
 using UnityEngine.SceneManagement;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class HoboCharacterController : MonoBehaviour
 {
@@ -34,6 +31,8 @@ public class HoboCharacterController : MonoBehaviour
     [HideInInspector]
     public int actionID = 0;
 
+    [SerializeField]
+    private bool ableToJump = false;
     [SerializeField]
     private bool isJumping = false;
     [SerializeField]
@@ -176,6 +175,10 @@ public class HoboCharacterController : MonoBehaviour
 
     private void Update()
     {
+        if(transform.position.y < -5)
+        {
+            Respawn();
+        }
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
@@ -198,7 +201,7 @@ public class HoboCharacterController : MonoBehaviour
         }
 
         // Changes the height position of the player..
-        if (Input.GetButtonDown("Jump") && groundedPlayer)
+        if (Input.GetButtonDown("Jump") && groundedPlayer && ableToJump)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
@@ -212,9 +215,9 @@ public class HoboCharacterController : MonoBehaviour
 
         }
     }
-
         void FixedUpdate()
     {
+
     }
 
     public void ActionNoLoopedReturnToIdle(bool value)
@@ -366,6 +369,16 @@ public class HoboCharacterController : MonoBehaviour
             isJumping = false;
             ReturnToAction(A_011_IDLE_STAND, 1.0f);
         }
+    }
+
+    public bool GetAbleToJump()
+    {
+        return ableToJump;
+    }
+
+    public void SetAbleToJump(bool enableDisableJump)
+    {
+        ableToJump = enableDisableJump;
     }
 
     public void RestarLevel()
