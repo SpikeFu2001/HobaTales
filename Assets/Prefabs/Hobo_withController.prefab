@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3016012204919036938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 532517808611402840}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &532517808611402840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3016012204919036938}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 6.43, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5555358028902395673}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8778645792660498592
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,6 +43,8 @@ GameObject:
   - component: {fileID: 4738918644021289302}
   - component: {fileID: 1515935699759904099}
   - component: {fileID: 6272240909571319174}
+  - component: {fileID: 2244994879985934350}
+  - component: {fileID: 9083900181184347458}
   m_Layer: 0
   m_Name: Hobo_withController
   m_TagString: Untagged
@@ -33,6 +66,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6706918705676008389}
+  - {fileID: 532517808611402840}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &4738918644021289302
@@ -78,14 +112,14 @@ MonoBehaviour:
   rigidbody: {fileID: 0}
   controller: {fileID: 0}
   cameraTransform: {fileID: 0}
-  turnSmoothTime: 0.1
-  actionID: 0
   ableToJump: 0
+  isWalking: 0
   isJumping: 0
   isOnGround: 0
   isFalling: 0
-  isWalking: 0
+  isInteracting: 0
   isAttacking: 0
+  turnSmoothTime: 0.1
 --- !u!143 &6272240909571319174
 CharacterController:
   m_ObjectHideFlags: 0
@@ -112,6 +146,31 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 2.53, z: 0}
+--- !u!114 &2244994879985934350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8778645792660498592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5740ffb3e160164896383534c424f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupPosition: {fileID: 532517808611402840}
+--- !u!114 &9083900181184347458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8778645792660498592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4021123dee6e58e4d998a31c47f15b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1821995636463096964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -181,8 +240,28 @@ PrefabInstance:
     - {fileID: 351290653817467459, guid: 630b1d5410dd6a14e96859fe6125f97f, type: 3}
     - {fileID: 3113387916667063790, guid: 630b1d5410dd6a14e96859fe6125f97f, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5697357867627853307, guid: 630b1d5410dd6a14e96859fe6125f97f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3677344821947546206}
   m_SourcePrefab: {fileID: 100100000, guid: 630b1d5410dd6a14e96859fe6125f97f, type: 3}
+--- !u!1 &6221744513452204415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5697357867627853307, guid: 630b1d5410dd6a14e96859fe6125f97f, type: 3}
+  m_PrefabInstance: {fileID: 1821995636463096964}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3677344821947546206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6221744513452204415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36de05ff17cd69e4a871ccc050bce034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6706918705676008389 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4925465093045251905, guid: 630b1d5410dd6a14e96859fe6125f97f, type: 3}
