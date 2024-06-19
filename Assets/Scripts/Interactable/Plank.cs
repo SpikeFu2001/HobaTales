@@ -5,10 +5,12 @@ using UnityEngine.ProBuilder.MeshOperations;
 
 public class Plank : PickupObject
 {
+    [SerializeField] private float _sfxVolume = 0.5f;
     public bool isPickedUp = false;
     
     public override void Interact(HoboInteractionController hoboInteractionController)
     {
+        AudioManager.instance.PlayGlobalAudio("[01] Object Interaction", _sfxVolume);
         isPickedUp = true;
     }
     
