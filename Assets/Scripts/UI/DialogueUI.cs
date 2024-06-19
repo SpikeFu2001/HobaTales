@@ -30,7 +30,7 @@ public class DialogueUI : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (dialogueCanvas.name == "Dialogue_Banana_Collected")
+        if (dialogueCanvas.name == "Dialogue_JumpHint")
         {
             if (player != null)
             {
@@ -39,7 +39,6 @@ public class DialogueUI : MonoBehaviour
                     return;
                 }
             }
-            return;
         }
         if (other.CompareTag("Player")&& dialogueCanvas!=null)
         {
