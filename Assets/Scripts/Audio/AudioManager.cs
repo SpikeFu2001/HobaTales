@@ -58,7 +58,7 @@ public class AudioManager : MonoBehaviour
     
     ///-////////////////////////////////////////////////////////////////////////////////
     ///
-    public void PlayGlobalAudio(string audioName, float volume = 1f, bool loop = false, GameObject audioObj = null)
+    public GameObject PlayGlobalAudio(string audioName, float volume = 1f, bool loop = false, GameObject audioObj = null)
     {
         GameObject audioObject = audioObj;
         if (audioObject == null)
@@ -84,6 +84,8 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(audioObject, audioClip.length);
         }
+
+        return audioObject;
     }
 
     ///-////////////////////////////////////////////////////////////////////////////////

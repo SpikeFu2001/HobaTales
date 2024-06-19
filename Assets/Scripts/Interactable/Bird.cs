@@ -33,7 +33,7 @@ public class Bird : MonoBehaviour
         }
     }
 
-    public void Fly()
+    public virtual void Fly()
     {
         _animator.CrossFade("Fly", 0.15f);
         _isFlying = true;

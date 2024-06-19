@@ -15,6 +15,8 @@ public class HoboInteractionController : MonoBehaviour
     private HashSet<InteractableObject> _nearbyInteractables;
     private Bridge _bridge;
     public Bridge bridge => _bridge;
+    private UnlockableDoor _unlockableDoor;
+    public UnlockableDoor unlockableDoor => _unlockableDoor;
 
     private PickupObject _currentPickupObject;
 
@@ -44,10 +46,16 @@ public class HoboInteractionController : MonoBehaviour
             _nearbyInteractables.Add(interactableObject);
         }
 
-        Bridge bridge = other.GetComponent<Bridge>();
-        if (bridge != null)
+        Bridge b = other.GetComponent<Bridge>();
+        if (b != null)
         {
-            _bridge = bridge;
+            _bridge = b;
+        }
+
+        UnlockableDoor u = other.GetComponent<UnlockableDoor>();
+        if (u != null)
+        {
+            _unlockableDoor = u;
         }
     }
 
@@ -61,10 +69,16 @@ public class HoboInteractionController : MonoBehaviour
             _nearbyInteractables.Remove(interactableObject);
         }
         
-        Bridge bridge = other.GetComponent<Bridge>();
-        if (bridge != null)
+        Bridge b = other.GetComponent<Bridge>();
+        if (b != null)
         {
             _bridge = null;
+        }
+        
+        UnlockableDoor u = other.GetComponent<UnlockableDoor>();
+        if (u != null)
+        {
+            _unlockableDoor = null;
         }
     }
 
