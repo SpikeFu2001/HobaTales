@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickupObject : InteractableObject
+public class Plank : PickupObject
 {
     public override void Interact(HoboInteractionController hoboInteractionController)
     {
