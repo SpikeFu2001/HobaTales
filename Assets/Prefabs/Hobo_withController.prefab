@@ -80,9 +80,12 @@ MonoBehaviour:
   cameraTransform: {fileID: 0}
   turnSmoothTime: 0.1
   actionID: 0
+  ableToJump: 0
   isJumping: 0
-  isGrounded: 0
+  isOnGround: 0
   isFalling: 0
+  isWalking: 0
+  isAttacking: 0
 --- !u!143 &6272240909571319174
 CharacterController:
   m_ObjectHideFlags: 0
@@ -117,6 +120,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5555358028902395673}
     m_Modifications:
+    - target: {fileID: 4886543148839405740, guid: 630b1d5410dd6a14e96859fe6125f97f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d4c3b7431bcf0ba4d96fa62c21b451d7, type: 2}
     - target: {fileID: 4925465093045251905, guid: 630b1d5410dd6a14e96859fe6125f97f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -170,7 +177,9 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 351290653817467459, guid: 630b1d5410dd6a14e96859fe6125f97f, type: 3}
+    - {fileID: 3113387916667063790, guid: 630b1d5410dd6a14e96859fe6125f97f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 630b1d5410dd6a14e96859fe6125f97f, type: 3}
