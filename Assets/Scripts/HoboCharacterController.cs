@@ -189,11 +189,10 @@ public class HoboCharacterController : MonoBehaviour
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
         Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
-
         if (direction != Vector3.zero)
         {
             // Move player
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            controller.Move(moveDir * Time.deltaTime * playerSpeed);
             // Rotate player to face direction
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
         }
@@ -206,14 +205,16 @@ public class HoboCharacterController : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
-    }
 
-    void FixedUpdate()
-    {
-        if (transform.position.y <= -10)
+        if (transform.position.y <= -100)
         {
             Respawn();
+
         }
+    }
+
+        void FixedUpdate()
+    {
     }
 
     public void ActionNoLoopedReturnToIdle(bool value)
