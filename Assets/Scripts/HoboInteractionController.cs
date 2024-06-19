@@ -13,8 +13,10 @@ public class HoboInteractionController : MonoBehaviour
     private int _interactMouseButton = 0;
 
     private HashSet<InteractableObject> _nearbyInteractables;
+    private Bridge _bridge;
+    public Bridge bridge => _bridge;
 
-    private InteractableObject _currentPickupObject;
+    private PickupObject _currentPickupObject;
 
     ///-/////////////////////////////////////////////////////////////////////////////////////
     ///
@@ -41,6 +43,12 @@ public class HoboInteractionController : MonoBehaviour
         {
             _nearbyInteractables.Add(interactableObject);
         }
+
+        Bridge bridge = other.GetComponent<Bridge>();
+        if (bridge != null)
+        {
+            _bridge = bridge;
+        }
     }
 
     ///-/////////////////////////////////////////////////////////////////////////////////////
@@ -52,6 +60,12 @@ public class HoboInteractionController : MonoBehaviour
         {
             _nearbyInteractables.Remove(interactableObject);
         }
+        
+        Bridge bridge = other.GetComponent<Bridge>();
+        if (bridge != null)
+        {
+            _bridge = null;
+        }
     }
 
     ///-/////////////////////////////////////////////////////////////////////////////////////
@@ -59,7 +73,7 @@ public class HoboInteractionController : MonoBehaviour
     private void OnUpdateInput()
     {
         // Check for interaction input
-        if (Input.GetMouseButtonDown(_interactMouseButton) && _currentPickupObject == null)
+        if (Input.GetMouseButtonDown(_interactMouseButton))
         {
             if (_currentPickupObject == null)
             {
@@ -85,7 +99,7 @@ public class HoboInteractionController : MonoBehaviour
         
         // FIND CLOSEST OBJECT
         InteractableObject closestObject = null;
-        float closestDistance = -1f;
+        float closestDistance = 1000000f;
             
         // Iterate through all nearby objects
         foreach (InteractableObject interactableObject in _nearbyInteractables)
@@ -97,10 +111,10 @@ public class HoboInteractionController : MonoBehaviour
                 closestDistance = distance;
             }
         }
-
+        
         if (closestObject != null)
         {
-            closestObject.Interact(this);
+            InteractWithObject(closestObject);
         }
     }
 
@@ -109,14 +123,17 @@ public class HoboInteractionController : MonoBehaviour
     private void InteractWithObject(InteractableObject interactableObject)
     {
         interactableObject.Interact(this);
+        
+        if (interactableObject is PickupObject pickupObject)
+        {
+            PickupObject(pickupObject);
+        }
     }
 
     ///-/////////////////////////////////////////////////////////////////////////////////////
     ///
     private void PickupObject(PickupObject pickupObject)
     {
-        InteractWithObject(pickupObject);
-
         // Set current pickup object
         _currentPickupObject = pickupObject;
         
@@ -129,7 +146,9 @@ public class HoboInteractionController : MonoBehaviour
     ///
     private void DropObject()
     {
-        _currentPickupObject = null;
+        _nearbyInteractables.Remove(_currentPickupObject);
+        _currentPickupObject.Drop(this);
         _currentPickupObject.transform.parent = null;
+        _currentPickupObject = null;
     }
 }

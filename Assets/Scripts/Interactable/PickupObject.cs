@@ -8,4 +8,9 @@ public class PickupObject : InteractableObject
     {
         // Nothing for now I guess
     }
+
+    public virtual void Drop(HoboInteractionController hoboInteractionController)
+    {
+        
+    }
 }
