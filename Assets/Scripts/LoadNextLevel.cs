@@ -22,27 +22,33 @@ public class LoadNextLevel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Load Next Level");
-            Load();
+            //Load();
         }
     }
     public void Load()
     {
+
         // Get the current active scene
         Scene currentScene = SceneManager.GetActiveScene();
 
+        if (currentScene.buildIndex == 4)
+        {
+            Debug.Log("Level 2 trying to load level 3");
+            return;
+        }
+
         // Calculate the next scene index
         int nextSceneIndex = currentScene.buildIndex + 1;
-
 
         // Check if the next scene index is within the valid range
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             // Load the next scene
-            SceneManager.LoadScene(nextSceneIndex);
+            SceneManager.LoadSceneAsync(nextSceneIndex);
         }
         else
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadSceneAsync(1);
         }
     }
 

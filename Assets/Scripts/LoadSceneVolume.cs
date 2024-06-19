@@ -10,6 +10,9 @@ public class LoadSceneVolume : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(_sceneName);
+        if (other.CompareTag("Player"))
+        {
+            SceneManager.LoadScene(_sceneName);
+        }
     }
 }
