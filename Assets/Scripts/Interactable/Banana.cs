@@ -6,8 +6,7 @@ public class Banana : InteractableObject
 {
     public override void Interact()
     {
-        base.Interact();
-        // TO DO: On interact, enable for player to jump
+        FindObjectOfType<HoboCharacterController>().SetAbleToJump(true);
         Destroy(gameObject);
     }
 }
