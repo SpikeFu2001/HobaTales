@@ -19,6 +19,8 @@ public class MainMenuUI : MonoBehaviour
     private void Awake()
     {
         InitializeUI();
+
+        AudioManager.instance.StopAllAudio();
     }
 
     ///-////////////////////////////////////////////////////////////////////////////////
