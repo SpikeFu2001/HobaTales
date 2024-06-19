@@ -40,6 +40,7 @@ public class DialogueUI : MonoBehaviour
                 }
             }
         }
+
         if (other.CompareTag("Player")&& dialogueCanvas!=null)
         {
             dialogueCanvas.SetActive(true);
@@ -56,4 +57,5 @@ public class DialogueUI : MonoBehaviour
             nextTriggerArea.SetActive(true);
         }
     }
+
 }
