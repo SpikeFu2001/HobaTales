@@ -122,14 +122,12 @@ public class HoboInteractionController : MonoBehaviour
     ///
     private void InteractWithObject(InteractableObject interactableObject)
     {
-        if (interactableObject is PickupObject pickupObject)
+        if (interactableObject is PickupObject pickupObject && pickupObject.isPickedUp == false)
         {
             PickupObject(pickupObject);
         }
-        else
-        {
-            _nearbyInteractables.Remove(interactableObject);
-        }
+
+        _nearbyInteractables.Remove(interactableObject);
         
         interactableObject.Interact(this);
     }
@@ -152,8 +150,6 @@ public class HoboInteractionController : MonoBehaviour
     {
         _nearbyInteractables.Remove(_currentPickupObject);
         _currentPickupObject.Drop(this);
-        _currentPickupObject.transform.position = new Vector3(_currentPickupObject.transform.position.x,
-            transform.position.y + 0.2f, _currentPickupObject.transform.position.z);
         _currentPickupObject.transform.parent = null;
         _currentPickupObject = null;
     }
