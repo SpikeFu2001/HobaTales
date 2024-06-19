@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
-    public virtual void Interact()
+    public virtual void Interact(HoboInteractionController hoboInteractionController)
     {
         Debug.Log("Interacted");
     }

@@ -108,7 +108,7 @@ public class HoboInteractionController : MonoBehaviour
     ///
     private void InteractWithObject(InteractableObject interactableObject)
     {
-        interactableObject.Interact();
+        interactableObject.Interact(this);
     }
 
     ///-/////////////////////////////////////////////////////////////////////////////////////

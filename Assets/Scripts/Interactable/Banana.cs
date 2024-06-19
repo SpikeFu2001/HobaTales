@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Banana : InteractableObject
 {
-    public override void Interact()
+    public override void Interact(HoboInteractionController hoboInteractionController)
     {
-        FindObjectOfType<HoboCharacterController>().SetAbleToJump(true);
+        hoboInteractionController.GetComponent<HoboCharacterController>().SetAbleToJump(true);
         Destroy(gameObject);
     }
 }
