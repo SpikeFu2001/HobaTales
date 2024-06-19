@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class HoboSwingController : MonoBehaviour
 {
+    [SerializeField] private float _sfxVolume = 0.5f;
+    
     // Controls
     private int swingMouseButton = 1;
 
@@ -56,7 +58,8 @@ public class HoboSwingController : MonoBehaviour
     {
         canSwing = false;
 
-        Debug.Log(nearbyBirds.Count);
+        AudioManager.instance.PlayGlobalAudio("[05] Cane", _sfxVolume);
+        
         // Detect if birds are nearby to swing at
         foreach (Bird bird in nearbyBirds)
         {
