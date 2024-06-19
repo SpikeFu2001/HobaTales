@@ -152,6 +152,8 @@ public class HoboInteractionController : MonoBehaviour
     {
         _nearbyInteractables.Remove(_currentPickupObject);
         _currentPickupObject.Drop(this);
+        _currentPickupObject.transform.position = new Vector3(_currentPickupObject.transform.position.x,
+            transform.position.y + 1, _currentPickupObject.transform.position.z);
         _currentPickupObject.transform.parent = null;
         _currentPickupObject = null;
     }
