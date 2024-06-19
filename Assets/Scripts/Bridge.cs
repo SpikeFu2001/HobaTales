@@ -8,6 +8,7 @@ public class Bridge : MonoBehaviour
     [SerializeField] private GameObject bridge;
     [SerializeField] private GameObject bridgeSilhouette;
     [SerializeField] private TextMeshPro numPlanksText;
+    [SerializeField] private GameObject blockCollider;
 
     [Space] [SerializeField] private int planksNeeded = 3;
     
@@ -23,6 +24,7 @@ public class Bridge : MonoBehaviour
         {
             bridge.SetActive(true);
             bridgeSilhouette.SetActive(false);
+            blockCollider.SetActive(false);
             numPlanksText.text = "";
             
             // Play Puzzle Complete Audio
