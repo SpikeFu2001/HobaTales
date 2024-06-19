@@ -369,7 +369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5555358028902395673, guid: a4f85c1b0d11d2a4296971008def7a88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.88
+      value: 1.33
       objectReference: {fileID: 0}
     - target: {fileID: 5555358028902395673, guid: a4f85c1b0d11d2a4296971008def7a88, type: 3}
       propertyPath: m_LocalPosition.z
@@ -403,6 +403,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6528383800655797288, guid: a4f85c1b0d11d2a4296971008def7a88, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d4c3b7431bcf0ba4d96fa62c21b451d7, type: 2}
     - target: {fileID: 8778645792660498592, guid: a4f85c1b0d11d2a4296971008def7a88, type: 3}
       propertyPath: m_Name
       value: Hobo_withController
