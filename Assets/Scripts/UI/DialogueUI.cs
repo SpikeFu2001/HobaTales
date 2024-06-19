@@ -11,6 +11,9 @@ public class DialogueUI : MonoBehaviour
     [SerializeField]
     public GameObject nextTriggerArea;
 
+    [SerializeField] 
+    public GameObject player;
+
     [SerializeField]
     public float disableUIdelay = 3f;
     void Start()
@@ -27,6 +30,17 @@ public class DialogueUI : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (dialogueCanvas.name == "Dialogue_Banana_Collected")
+        {
+            if (player != null)
+            {
+                if (!player.GetComponent<HoboCharacterController>().GetAbleToJump())
+                {
+                    return;
+                }
+            }
+            return;
+        }
         if (other.CompareTag("Player")&& dialogueCanvas!=null)
         {
             dialogueCanvas.SetActive(true);
