@@ -48,6 +48,6 @@ public class MainMenuUI : MonoBehaviour
     /// 
     private void OnCreditsButtonPressed(ClickEvent evt)
     {
-        Debug.Log("TO DO: IMPLEMENT CREDITS BUTTON");
+        SceneManager.LoadScene("Credits");
     }
 }
